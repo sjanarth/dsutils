@@ -19,8 +19,7 @@ public class BasicTrie
 				e.printStackTrace();
 			}
 		}
-		else 
-		{
+		else {
 			throw new IllegalStateException("Class " + subClass + " not s subclass of BasicTrieNode");
 		}
 	}
@@ -88,9 +87,9 @@ public class BasicTrie
 
 		public BasicTrieNode (Character ch, BasicTrieNode p) {
 			c = ch;
-			children = new TreeMap<Character, BasicTrieNode>(new NullCharComparator());
+			children = new TreeMap<>(new NullCharComparator());
 			parentNode = p;	// a more clever implementation could do away with this
-			properties = new HashMap<Object,Object>();
+			properties = new HashMap<>();
 		}
 
 		public Map<Character, BasicTrieNode> getChildMap()	{
@@ -293,7 +292,8 @@ public class BasicTrie
 		}
 	}
 
-    public static class BasicTrieWalker
+    // TODO: make this an iterator implementation
+	public static class BasicTrieWalker
     {
         public void walkDfs (BasicTrieNode node)	{
             if (node == null) return;

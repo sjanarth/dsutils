@@ -52,7 +52,7 @@ public class BasicSuffixTree extends BasicTrie
 		*/
 	}
 
-	private Map<Integer,String> words = null;
+	private Map<Integer, String> words = null;
 	
 	public static void main(String[] args)	{
 		BasicSuffixTree st = new BasicSuffixTree("banana");
