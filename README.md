@@ -1,5 +1,5 @@
 [![Maven Package](https://github.com/sjanarth/dsutils/actions/workflows/maven-publish.yml/badge.svg)](https://github.com/sjanarth/dsutils/actions/workflows/maven-publish.yml)
-![Downloads](https://img.shields.io/github/downloads/sjanarth/dsutils/total)
+[![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
 
 # Utility Data Structures
 A set of utility data structures classes.
