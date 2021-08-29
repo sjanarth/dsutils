@@ -1,5 +1,6 @@
 package com.sjanarth.dsutils;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Set;
 
@@ -7,9 +8,7 @@ public class GeneralizedSuffixTree extends BasicSuffixTree
 {
 	public GeneralizedSuffixTree(String[] inputs) {
 		super();
-		for (int i = 0; i < inputs.length; i++)	{
-			addWord(inputs[i]);
-		}
+		Arrays.stream(inputs).forEach(i -> addWord(i));
 	}
 	
 	public static String getLCS (String[] inputs)	{

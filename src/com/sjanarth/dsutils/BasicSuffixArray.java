@@ -3,11 +3,7 @@ package com.sjanarth.dsutils;
 import java.util.Arrays;
 import java.util.Comparator;
 
-/*
- * References:
- * 	 https://github.com/williamfiset/data-structures/tree/master/com/williamfiset/datastructures/suffixarray
- */
-public class BasicSuffixArray 
+public class BasicSuffixArray
 {
 	public BasicSuffixArray (String t) {
 		construct(t);
@@ -49,7 +45,7 @@ public class BasicSuffixArray
 	}
 	
 	/*
-	 * This is basic o(n^2) algorithm to construct a Suffix Array.
+	 * This is a basic o(n^2) algorithm to construct a Suffix Array.
 	 * There are faster o(nlog^2n), o(nlogn) and o(n) variants available on the web.
 	 */
 	protected void construct (String t)	{
@@ -94,13 +90,7 @@ public class BasicSuffixArray
 		
 		protected String suffix = null;
 		protected Integer position = -1;
-		protected static Comparator<Suffix> comp = 
-			new java.util.Comparator<Suffix> () {
-						@Override
-						public int compare(Suffix o1, Suffix o2) {
-							return o1.suffix.compareTo(o2.suffix);
-						}
-					};
+		protected static Comparator<Suffix> comp = (o1, o2) -> o1.suffix.compareTo(o2.suffix);
 	}
 	
 	public static void main (String[] args)	{

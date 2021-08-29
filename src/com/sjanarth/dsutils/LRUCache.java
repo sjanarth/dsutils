@@ -34,10 +34,10 @@ import java.util.Map;
  * cache.get(4);       // returns 4
  * 
  */
-public class LRUCache
+public class LRUCache<K, V>
 {
 	public static void main(String[] args) {
-		LRUCache cache = new LRUCache( 2 /* capacity */ );
+		LRUCache<Integer,Integer> cache = new LRUCache<> ( 2 /* capacity */ );
 		cache.put(1, 1);
 		cache.put(2, 2);
 		cache.get(1);       // returns 1
@@ -51,38 +51,38 @@ public class LRUCache
 
     public LRUCache(int c) {
         capacity = c;
+        map = new HashMap<>();
+        list = new LinkedList<>();
     }
     
-    public int get(int key) {
+    public V get(K key) {
         sop("-> get, "+key+", "+list.toString()+", "+map.toString());
-        int val = -1;
+        V value = null;
         if (map.containsKey(key))   {
-            val = map.get(key);
+            value = map.get(key);
             remove(key);
-            addHead(key, val);
+            addHead(key, value);
         }
-        sop("<- get, "+key+", "+list.toString()+", "+map.toString()+", returning "+val);
-        return val;
+        sop("<- get, "+key+", "+list.toString()+", "+map.toString()+", returning "+value);
+        return value;
     }
     
-    public void put(int key, int value) {
+    public void put(K key, V value) {
         sop("-> put, "+key+", "+list.toString()+", "+map.toString());
         if (map.containsKey(key))   {
             remove(key);
-            addHead(key, value);
-        } else {
-            addHead(key, value);
         }
+        addHead(key, value);
         sop("<- put, "+key+", "+list.toString()+", "+map.toString());
     }
     
-    private void remove (Integer key)   {
+    private void remove (K key)   {
         sop("    Removing "+key);
         list.remove(key);
         map.remove(key);
     }
     
-    private void addHead(Integer key, Integer value) {
+    private void addHead(K key, V value) {
         sop("    Adding at head "+key);
         if (map.containsKey(key)) {
             remove(key);
@@ -94,10 +94,10 @@ public class LRUCache
     }
     
     private void sop(String s) {
-    	System.out.println(s);
+	    System.out.println(s);
     }
     
     private int capacity = 0;
-    private LinkedList<Integer> list = new LinkedList<Integer>();
-    private Map<Integer,Integer> map = new HashMap<Integer,Integer>();
+    private LinkedList<K> list;
+    private Map<K,V> map;
 }
