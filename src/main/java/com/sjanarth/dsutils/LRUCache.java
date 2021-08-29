@@ -71,8 +71,10 @@ public class LRUCache<K, V>
         sop("-> put, "+key+", "+list.toString()+", "+map.toString());
         if (map.containsKey(key))   {
             remove(key);
+            addHead(key, value);
+        } else {
+            addHead(key, value);
         }
-        addHead(key, value);
         sop("<- put, "+key+", "+list.toString()+", "+map.toString());
     }
     

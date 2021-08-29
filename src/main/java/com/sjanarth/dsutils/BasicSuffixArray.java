@@ -20,6 +20,33 @@ public class BasicSuffixArray
 	public String getSuffix (int i)	{
 		return text.substring(sa[i]);
 	}
+
+	public static String getLongestCommonSubstring (String s1, String s2)	{
+		char[] delims = new char[] { '$', '.', '!', '@', '#', '%', '^', '&', '*', '-', '+', '=', ':', ';', ',', '/', '?'};;
+		for (char delim : delims)
+			if (!s1.contains(String.valueOf(delim)) && !s2.contains(String.valueOf(delim)))
+				return getLongestRepeatedSubstring(s1 + delim + s2);
+		return null;
+	}
+
+	public static String getLongestRepeatedSubstring (String s)	{
+		String lrs = null;
+		BasicSuffixArray sa = new BasicSuffixArray(s);
+		System.out.println(sa.toString());
+		int[] lcp = sa.getLCPArray();
+		int maxVal = Integer.MIN_VALUE;
+		int maxPos = -1;
+		for (int i = 0; i < lcp.length; i++)    {
+			if (maxVal < lcp[i])    {
+				maxVal = lcp[i];
+				maxPos = i;
+			}
+		}
+		if (maxPos != -1)       {
+			lrs = sa.getSuffix(maxPos).substring(0, maxVal);
+		}
+		return lrs;
+	}
 	
 	@Override
 	public String toString ()	{
@@ -33,7 +60,6 @@ public class BasicSuffixArray
 			sb.append(getSuffix(i));
 			sb.append(",\n");
 		}
-		sb.append("}\n");
 		return sb.toString();
 	}
 	
@@ -96,5 +122,7 @@ public class BasicSuffixArray
 	public static void main (String[] args)	{
 		BasicSuffixArray sa = new BasicSuffixArray("cart$art");
 		System.out.println(sa.toString());
+		System.out.println("Longest common substring (myself, yourself) = "+getLongestCommonSubstring("my$self", "yourself"));
+		System.out.println("Longest repeated substring (mississippi) = "+getLongestRepeatedSubstring("mississippi"));
 	}
 }
