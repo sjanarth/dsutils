@@ -1,5 +1,5 @@
 [![Maven Package](https://github.com/sjanarth/dsutils/actions/workflows/maven-publish.yml/badge.svg)](https://github.com/sjanarth/dsutils/actions/workflows/maven-publish.yml)
-![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=sjanarth&show_icons=true)
+![https://img.shields.io/github/license/sjanarth/dsutils
 
 # Utility Data Structures
 A set of utility data structures classes.
