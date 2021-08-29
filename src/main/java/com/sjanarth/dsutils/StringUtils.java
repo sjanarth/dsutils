@@ -5,7 +5,7 @@ import java.util.*;
 public class StringUtils 
 {
 	public static Set<String> getAllSubstrings (String input)	{
-		Set<String> substrs = new LinkedHashSet<String>();
+		Set<String> substrs = new LinkedHashSet<>();
 		for (int i = 0; i < input.length(); i++) {
 			for (int j = 1; j <= input.length() - i; j++)	{
 				substrs.add(input.substring(i, i+j));
