@@ -1,4 +1,4 @@
-![Maven Package](https://github.com/sjanarth/dsutils/actions/workflows/maven-publish.yml/badge.svg)](https://github.com/sjanarth/dsutils/actions/workflows/maven-publish.yml)
+[![Maven Package](https://github.com/sjanarth/dsutils/actions/workflows/maven-publish.yml/badge.svg)](https://github.com/sjanarth/dsutils/actions/workflows/maven-publish.yml)
 ![Downloads](https://img.shields.io/github/downloads/sjanarth/dsutils/total)
 
 # Utility Data Structures
