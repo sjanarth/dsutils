@@ -39,7 +39,7 @@ jobs:
         PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         
     - name: Publish to the Maven Central Repository
-      run: mvn -Dproject.version=${env.VERSION} --batch-mode deploy
+      run: mvn -Dproject.version=${VERSION} --batch-mode deploy
       env:
         MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
