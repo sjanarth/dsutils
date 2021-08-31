@@ -20,6 +20,6 @@ A set of special purpose utility data structures classes.
 # Documentation and Usage
 **General Documentation**
 
-    * [JavaDocs](http://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/javadoc/apidocs/index.html)
+[JavaDocs](http://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/javadoc/apidocs/index.html)
 
 **Example Usage**
