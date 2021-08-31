@@ -18,7 +18,7 @@ A set of special purpose utility data structures classes.
 | [LRUCache](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/LRUCache.html)     | |
 
 # Documentation and Usage
-** General Documentation **
+**General Documentation**
       * [JavaDocs](http://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/javadoc/apidocs/index.html)
 
 **Example Usage**
