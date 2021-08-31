@@ -1,4 +1,4 @@
-[![Build](https://github.com/sjanarth/dsutils/actions/workflows/maven-publish.yml/badge.svg)](https://github.com/sjanarth/dsutils/actions/workflows/maven-publish.yml)
+![Build](https://img.shields.io/github/workflow/status/sjanarth/dsutils/Maven%20Package)
 ![Last Update](https://img.shields.io/github/last-commit/sjanarth/dsutils)
 ![License](https://img.shields.io/github/license/sjanarth/dsutils)
 
