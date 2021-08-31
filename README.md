@@ -2,8 +2,8 @@
 ![Lat Update](https://img.shields.io/github/last-commit/sjanarth/dsutils)
 ![License](https://img.shields.io/github/license/sjanarth/dsutils)
 
-# Utility Data Structures
-A set of utility data structures classes.
+# Special Purpose Data Structures
+A set of special purpose utility data structures classes.
 
 | Class         | What is it    | 
 | ------------- |:-------------:|
