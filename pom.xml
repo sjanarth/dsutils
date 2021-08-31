@@ -3,31 +3,37 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    
     <groupId>io.github.sjanarth</groupId>
     <artifactId>sjanarth-dsutils</artifactId>
-    <version>0.8.1</version>
+    <version>${project.version}</version>
     <name>sjanarth-dsutils</name>
     <description>Collection of Datastructures</description>
     <url>https://github.com/sjanarth/dsutils</url>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>         
+
     <organization>
         <name>io.github.sjanarth</name>
         <url>https://github.com/sjanarth/dsutils</url>
     </organization>
+         
     <licenses>
         <license>
             <name>The MIT License</name>
             <url>https://mit-license.org/</url>
         </license>
     </licenses>
+         
     <scm>
         <url>https://github.com/sjanarth/dsutils</url>
         <connection>scm:git:git://github.com/sjanarth/dsutils.git</connection>
         <developerConnection>scm:git:git@github.com:sjanarth/dsutils.git</developerConnection>
     </scm>
+         
     <developers>
         <developer>
             <name>Satish Janarthanan</name>
@@ -36,6 +42,7 @@
             <organizationUrl></organizationUrl>
         </developer>
     </developers>
+         
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
@@ -46,6 +53,7 @@
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+         
     <build>
         <plugins>
             <plugin>
