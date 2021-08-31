@@ -9,6 +9,10 @@
     <name>sjanarth-dsutils</name>
     <description>Collection of Datastructures</description>
     <url>https://github.com/sjanarth/dsutils</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>         
     <organization>
         <name>io.github.sjanarth</name>
         <url>https://github.com/sjanarth/dsutils</url>
