@@ -16,3 +16,9 @@ A set of special purpose utility data structures classes.
 | [BasicTrie](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicTrie.html)     | |
 | [GeneralizedSuffixTree](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/GeneralizedSuffixTree.html)     | |
 | [LRUCache](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/LRUCache.html)     | |
+
+# Documentation and Usage
+** General Documentation **
+      * [JavaDocs](http://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/javadoc/apidocs/index.html)
+
+**Example Usage**
