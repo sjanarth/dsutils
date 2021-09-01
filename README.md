@@ -1,8 +1,6 @@
 ![Build](https://img.shields.io/github/workflow/status/sjanarth/dsutils/Maven%20Package)
-![Last Update](https://img.shields.io/github/last-commit/sjanarth/dsutils)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/sjanarth/dsutils)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/sjanarth/dsutils?include_prereleases)
-![Downloads](https://img.shields.io/github/downloads/sjanarth/dsutils/total)
 ![License](https://img.shields.io/github/license/sjanarth/dsutils)
 
 # Special Purpose Data Structures
