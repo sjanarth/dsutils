@@ -3,43 +3,71 @@ package com.sjanarth.dsutils;
 import java.lang.reflect.Constructor;
 import java.util.*;
 
-public class BasicTrie
+/**
+ * A basic implementation of a trie data structure.
+ *
+ * A trie data structure is a container for one or more Strings represented as a tree whose
+ * nodes represent characters in the input string. The root node represents a special '/' character.
+ * The node representing the first character of the input string is a direct descendant of this special root node.
+ * All other nodes (representing characters at indices 1 through n in the input text) inherit from a parent node
+ * that represents the character immediately to the left of the node.
+ *
+ * More info:
+ * https://en.wikipedia.org/wiki/Trie
+ */
+public class BasicTrie extends BasicObjectWithProperties
 {
+	/**
+	 * Constructs an instance of BasicTrie with the root node of type BasicTrieNode.
+	 */
 	public BasicTrie() {
-		root = new BasicTrieNode();
-		properties = new HashMap<Object,Object>(); 
+		this(BasicTrieNode.class);
 	}
-	
+
+	/**
+	 * Construcs an instance of BasicTrie with the root node of the given type.
+	 * @param subClass a child class of <a href="#BasicTrieNode">BasicTrieNode</a> to
+	 *                 	create the root node of this BasicTrie with.
+	 */
 	public BasicTrie (Class<? extends BasicTrieNode> subClass) {
-		if (BasicTrieNode.class.isAssignableFrom(subClass))	{
-			try {
-				Constructor<? extends BasicTrieNode> c = subClass.getConstructor(new Class[] {});
-				root = c.newInstance(new Object[] {});
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		else {
-			throw new IllegalStateException("Class " + subClass + " not s subclass of BasicTrieNode");
+		try {
+			Constructor<? extends BasicTrieNode> c = subClass.getConstructor(new Class[] {});
+			root = c.newInstance(new Object[] {});
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * Fetches the root node of this trie.
+	 * @return the root node of this trie.
+	 */
 	public BasicTrieNode getRoot()	{
 		return root;
 	}
-	
+
+	/**
+	 * Adds the given String to the trie.
+	 * @param word string to add to the trie.
+	 * @return the node representing the first character of the given word in this trie.
+	 */
 	public BasicTrieNode add (String word) {
 		//System.out.println("Trie.add, s="+s);
 		word = word.toLowerCase();	// done typically to minimize the overall size of the trie
 		Queue<Character> q = toCharQueue(word);
 		return root.add(q);
 	}
-	
+
+	/**
+	 * Searches the given string in the trie alphabetically.
+	 * @param prefix the string to look for in the trie.
+	 * @return a list of Strings from this trie that represent words starting with the given prefix.
+	 */
 	public List<String> searchAlpha (String prefix)	{
 		System.out.println("searchAlpha, prefix="+prefix);
 		Queue<Character> q = toCharQueue(prefix);
-		BasicTrieNode node = root.findNode(q);
-		if (node != null)	{
+		Optional<? extends BasicTrieNode> node = root.findNode(q);
+		if (node.isPresent())	{
 			//System.out.println(node.toString(0));
 			/*
 			prefix = prefix.substring(0, prefix.length()-1);
@@ -47,68 +75,81 @@ public class BasicTrie
 			for (String s : node.getAllChildStrings())
 				results.add(prefix+s);
 			*/
-			return node.getAllChildStrings();
+			return node.get().getAllChildStrings();
 		}
-		return new ArrayList<String>();
+		return new ArrayList<>();
 	}
-	
-	public Object getProperty (Object key)	{
-		return properties.get(key);
-	}
-	
-	public Object setProperty (Object key, Object value)	{
-		Object oldValue = properties.get(key);
-		properties.put(key, value);
-		return oldValue;
-	}
-		
+
 	@Override
 	public String toString () {
-		StringBuilder sb = new StringBuilder();
-		sb.append(root.toString(0));
-		return sb.toString();
+		return root.toString(0);
 	}
 	
 	protected Queue<Character> toCharQueue(String s) {
-		Queue<Character> q = new LinkedList<Character>();
+		Queue<Character> q = new LinkedList<>();
 		for (Character c : s.toCharArray())
 			q.add(c);
 		return q;
 	}
 	
 	protected BasicTrieNode root = null;
-	protected Map<Object,Object> properties = null;
 
-	public static class BasicTrieNode
+	/**
+	 * A class representing individual nodes in the trie.
+	 */
+	public static class BasicTrieNode extends BasicObjectWithProperties
 	{
+		/**
+		 * Constructs an empty instance of a BasicTrieNode.
+		 */
 		public BasicTrieNode () {
 			this (null, null);
 		}
 
+		/**
+		 * Constructs a BasicTrieNode instance representing the given character as a child of the given parent node.
+		 * @param ch character representing the new BasicTrieNode instance.
+		 * @param p parent to the link the node BasicTrieNode instance as a child of.
+		 */
 		public BasicTrieNode (Character ch, BasicTrieNode p) {
 			c = ch;
 			children = new TreeMap<>(new NullCharComparator());
 			parentNode = p;	// a more clever implementation could do away with this
-			properties = new HashMap<>();
 		}
 
+		/**
+		 * Fetches a map of child nodes rooted at the current node.
+		 * @return a map of child nodes rooted at the current node.
+		 */
 		public Map<Character, BasicTrieNode> getChildMap()	{
 			return children;
 		}
 
+		/**
+		 * Fetches the parent node.
+		 * @return the parent node of the current node.
+		 */
 		public BasicTrieNode getParent()	{
 			return parentNode;
 		}
 
+		/**
+		 * Signals if this node is a terminal node.
+		 * @return true if this node is a terminal node (represents the end of a word), false otherwise.
+		 */
 		public boolean isWord () {
 			return c == null && children.isEmpty();
 		}
 
+		/**
+		 * Signals if this is a root node.
+		 * @return true if this is a root node, false otherwise.
+		 */
 		public boolean isRoot () {
 			return c == null && !children.isEmpty();
 		}
 
-		public BasicTrieNode add(Queue<Character> q)	{
+		protected BasicTrieNode add(Queue<Character> q)	{
 			Character nextChar = null;
 			if (!q.isEmpty())
 				nextChar = q.poll();
@@ -128,16 +169,25 @@ public class BasicTrie
 				return child;
 		}
 
-		public BasicTrieNode findNode(Queue<Character> qPrefix)	{
+		/**
+		 * Searches for a node matching the given prefix rooted in the current node.
+		 * @param qPrefix prefix to search for
+		 * @return the node matching the given prefix.
+		 */
+		public Optional<? extends BasicTrieNode> findNode(Queue<Character> qPrefix)	{
 			if (qPrefix.isEmpty())
-				return this;// children.get(null);
+				return Optional.of(this);// children.get(null);
 			Character nextChar = qPrefix.poll();
 			if(!children.containsKey(nextChar))
-				return null;
+				return Optional.empty();
 			BasicTrieNode nextNode = children.get(nextChar);
 			return nextNode.findNode(qPrefix);
 		}
 
+		/**
+		 * Fetches the String represented by this node.
+		 * @return the String represented by this node starting from the root node.
+		 */
 		public String getString ()  {
 			StringBuilder sb = new StringBuilder();
 			BasicTrieNode curr = this;
@@ -149,8 +199,12 @@ public class BasicTrie
 			return sb.reverse().toString();
 		}
 
+		/**
+		 * Fetches all Strings with the current node as the root node.
+		 * @return a list of Strings rooted at the current node.
+		 */
 		public List<String> getAllChildStrings ()	{
-			List<String> allStrings = new ArrayList<String>();
+			List<String> allStrings = new ArrayList<>();
 			if (isWord()) {
 				allStrings.add("");
 				return allStrings;
@@ -161,7 +215,7 @@ public class BasicTrie
 			return allStrings;
 		}
 
-		public String toString (int level) {
+		 protected String toString (int level) {
 			StringBuilder sb = new StringBuilder();
 			if (isRoot()) {
 				sb.append("/");
@@ -173,16 +227,13 @@ public class BasicTrie
 			} else {
 				for (int i = 1; i < level; i++) sb.append(" ");
 				sb.append("\\_");
+				//sb.append("|-");
 				if (isWord()) {
 					sb.append(".");
-					if (!properties.isEmpty())	{
-						sb.append("("); appendProps(sb); sb.append(")");
-					}
+					appendProps(sb);
 				} else {
 					sb.append(c);
-					if (!properties.isEmpty()) {
-						sb.append("("); appendProps(sb); sb.append(")");
-					}
+					appendProps(sb);
 					for (Character ch : children.keySet()) {
 						sb.append("\n");
 						BasicTrieNode child = children.get(ch);
@@ -193,93 +244,59 @@ public class BasicTrie
 			return sb.toString();
 		}
 
-		public Object getProperty (Object key)	{
-			return properties.get(key);
-		}
-
-		public Object setProperty (Object key, Object value)	{
-			Object oldValue = properties.get(key);
-			properties.put(key, value);
-			return oldValue;
-		}
-
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		public void addProperty (Object key, Object value) {
-			Object oldValue = properties.get(key);
-			if (oldValue != null)	{
-				if (oldValue instanceof Collection)	{
-					Collection ov = (Collection) oldValue;
-					if (value instanceof Collection)
-						ov.addAll((Collection)value);
-					else
-						ov.add(value);
-				} else if (oldValue instanceof Map)	{
-					Map ov = (Map) oldValue;
-					if (value instanceof Map)
-						ov.putAll((Map)value);
-					else
-						setProperty(key, value);
-				} else {
-					Set<Object> sov = new HashSet<Object>();
-					sov.add(oldValue);
-					sov.add(value);
-					setProperty(key, sov);
-				}
-			} else {
-				Set<Object> sov = new HashSet<Object>();
-				sov.add(value);
-				setProperty(key, sov);
-			}
-		}
-
 		@SuppressWarnings("rawtypes")
-		private BasicTrieNode createNode (Character ch, BasicTrieNode parent)	{
+		protected BasicTrieNode createNode (Character ch, BasicTrieNode parent)	{
 			Class<? extends BasicTrieNode> cls = parent.getClass();
-			if (BasicTrieNode.class.isAssignableFrom(cls))	{
-				Class[] paramTypes = { Character.class, cls };
-				Object[] params = { ch, parent };
-				try {
-					Constructor<? extends BasicTrieNode> c = cls.getConstructor(paramTypes);
-					return c.newInstance(params);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			else
-			{
-				throw new IllegalStateException("Class " + cls + " not s subclass of BasicTrieNode");
+			Class[] paramTypes = { Character.class, cls };
+			Object[] params = { ch, parent };
+			try {
+				Constructor<? extends BasicTrieNode> c = cls.getConstructor(paramTypes);
+				return c.newInstance(params);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 			return null;
 		}
 
 		@SuppressWarnings("unchecked")
-		private void appendProps (StringBuilder sb)	{
+		protected void appendProps (StringBuilder sb)	{
+			if (props.isEmpty()) {
+				return;
+			}
+			sb.append("{");
 			boolean first = true;
-			for (Object k : properties.keySet())	{
+			for (Object k : props.keySet())	{
 				if (!first)
 					sb.append(",");
 				sb.append(k); sb.append("=");
-				Object v = properties.get(k);
+				Object v = props.get(k);
 				if (v instanceof Collection)	{
 					Collection<Object> lov = (Collection<Object>) v;
+					sb.append("[");
 					boolean first2 = true;
 					for (Object v2 : lov) {
 						if (!first2)
 							sb.append(",");
-						sb.append(v2);
+						if (v2 instanceof BasicTrieNode)
+							sb.append(((BasicTrieNode) v2).getString());
+						else
+							sb.append(v2);
 						first2 = false;
 					}
+					sb.append("]");
+				} else if (v instanceof BasicTrieNode)	{
+					sb.append(((BasicTrieNode) v).getString());
 				} else {
-					sb.append(properties.get(k));
+					sb.append(props.get(k));
 				}
 				first = false;
 			}
+			sb.append("}");
 		}
 
-		protected Character c = null;
-		protected Map<Character, BasicTrieNode> children = null;
-		protected BasicTrieNode parentNode = null;
-		protected Map<Object,Object> properties = null;
+		protected Character c;
+		protected Map<Character, BasicTrieNode> children;
+		protected BasicTrieNode parentNode;
 
 		private static class NullCharComparator implements Comparator<Character>	{
 			@Override
@@ -292,29 +309,87 @@ public class BasicTrie
 		}
 	}
 
-    // TODO: make this an iterator implementation
+	public BasicTrieBfsIterator getBfsIterator()	{
+		return new BasicTrieBfsIterator(root);
+	}
+
+	public static class BasicTrieBfsIterator implements Iterator<BasicTrieNode>
+	{
+		protected BasicTrieBfsIterator (BasicTrieNode node)	{
+			if (node != null)
+				queue.add(node);
+		}
+
+		@Override
+		public boolean hasNext() {
+			return !queue.isEmpty();
+		}
+
+		@Override
+		public BasicTrieNode next() {
+			BasicTrieNode head = queue.poll();
+			if (!head.getAllChildStrings().isEmpty())	{
+				for (BasicTrieNode child : head.getChildMap().values())
+					queue.add(child);
+			}
+			return head;
+		}
+
+		private Queue<BasicTrieNode> queue = new LinkedList<>();
+	}
+
+	public BasicTrieDfsIterator getDfsIterator()	{
+		return new BasicTrieDfsIterator(root);
+	}
+
+	public static class BasicTrieDfsIterator implements Iterator<BasicTrieNode>
+	{
+		protected BasicTrieDfsIterator (BasicTrieNode node)	{
+			if (node != null)
+				stack.push(node);
+		}
+
+		@Override
+		public boolean hasNext() {
+			return !stack.isEmpty();
+		}
+
+		@Override
+		public BasicTrieNode next() {
+			BasicTrieNode top = stack.pop();
+			if (!top.getAllChildStrings().isEmpty())	{
+				for (BasicTrieNode child : top.getChildMap().values())
+					stack.push(child);
+			}
+			return top;
+		}
+
+		private Stack<BasicTrieNode> stack = new Stack<BasicTrieNode>();
+	}
+
+	// TODO: Convert this to lambda style processNode
 	public static class BasicTrieWalker
-    {
-        public void walkDfs (BasicTrieNode node)	{
-            if (node == null) return;
-            for (BasicTrieNode child : node.getChildMap().values())
-                walkDfs(child);
-            processNode (node);
-        }
+	{
+		public void walkDfs (BasicTrieNode node)	{
+			if (node == null) return;
+			for (BasicTrieNode child : node.getChildMap().values())
+				walkDfs(child);
+			processNode (node);
+		}
 
-        public void walkBfs (BasicTrieNode node)	{
-            if (node == null) return;
-            Queue<BasicTrieNode> qNodes = new ArrayDeque<BasicTrieNode>();
-            qNodes.add(node);
-            while (!qNodes.isEmpty())	{
-                BasicTrieNode curr = qNodes.poll();
-                processNode (curr);
-                qNodes.addAll(curr.getChildMap().values());
-            }
-        }
+		public void walkBfs (BasicTrieNode node)	{
+			if (node == null) return;
+			Queue<BasicTrieNode> qNodes = new ArrayDeque<>();
+			qNodes.add(node);
+			while (!qNodes.isEmpty())	{
+				BasicTrieNode curr = qNodes.poll();
+				processNode (curr);
+				qNodes.addAll(curr.getChildMap().values());
+			}
+		}
 
-        public void processNode (BasicTrieNode node)	{
-            System.out.println(node.getString());
-        }
-    }
+		public void processNode (BasicTrieNode node)	{
+			System.out.println(node.getString());
+		}
+	}
 }

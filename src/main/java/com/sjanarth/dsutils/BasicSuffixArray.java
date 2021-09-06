@@ -3,51 +3,54 @@ package com.sjanarth.dsutils;
 import java.util.Arrays;
 import java.util.Comparator;
 
+/**
+ * A basic implementation of a suffix array.
+ *
+ * The construction of the suffix array uses a O(n^2) algorithm but can be
+ * easily overridden by supplying custom implementations of the construct method.
+ * This can be particularly useful for large datasets or if the input text is > 500 chars.
+ *
+ * More info:
+ * https://en.wikipedia.org/wiki/Suffix_array
+ * http://www.stanford.edu/class/cs97si/suffix-array.pdf
+ */
 public class BasicSuffixArray
 {
-	public BasicSuffixArray (String t) {
-		construct(t);
+	/**
+	 * Construct a basic suffix array.
+	 * @param text input text to build the suffix array out of
+	 */
+	public BasicSuffixArray (String text) {
+		construct(text);
 	}
 
+	/**
+	 * Returns the internal suffix array.
+	 * @return an array of int representing the sorted indices of the suffixes.
+	 */
 	public int[] getSuffixArray()	{
 		return sa;
 	}
-	
+
+	/**
+	 * Returns the longest common prefix array.
+	 * @return an array of int representing the lengths of the longest common
+	 * 			prefixes of adjacent elements in the sorted suffixes array.
+	 * 		    The first element is always initialized with 0.
+	 */
 	public int[] getLCPArray()	{
 		return lcp;
 	}
-	
+
+	/**
+	 * Returns the suffix at index i.
+	 * @param i index into the sorted suffixes array.
+	 * @return String representing the suffix at index i in the sorted suffixes array.
+	 */
 	public String getSuffix (int i)	{
 		return text.substring(sa[i]);
 	}
 
-	public static String getLongestCommonSubstring (String s1, String s2)	{
-		char[] delims = new char[] { '$', '.', '!', '@', '#', '%', '^', '&', '*', '-', '+', '=', ':', ';', ',', '/', '?'};;
-		for (char delim : delims)
-			if (!s1.contains(String.valueOf(delim)) && !s2.contains(String.valueOf(delim)))
-				return getLongestRepeatedSubstring(s1 + delim + s2);
-		return null;
-	}
-
-	public static String getLongestRepeatedSubstring (String s)	{
-		String lrs = null;
-		BasicSuffixArray sa = new BasicSuffixArray(s);
-		System.out.println(sa.toString());
-		int[] lcp = sa.getLCPArray();
-		int maxVal = Integer.MIN_VALUE;
-		int maxPos = -1;
-		for (int i = 0; i < lcp.length; i++)    {
-			if (maxVal < lcp[i])    {
-				maxVal = lcp[i];
-				maxPos = i;
-			}
-		}
-		if (maxPos != -1)       {
-			lrs = sa.getSuffix(maxPos).substring(0, maxVal);
-		}
-		return lrs;
-	}
-	
 	@Override
 	public String toString ()	{
 		StringBuilder sb = new StringBuilder();
@@ -72,17 +75,17 @@ public class BasicSuffixArray
 	
 	/*
 	 * This is a basic o(n^2) algorithm to construct a Suffix Array.
-	 * There are faster o(nlog^2n), o(nlogn) and o(n) variants available on the web.
+	 * There are faster o(nlog^2n), o(nlogn) and o(n) variants available.
 	 */
-	protected void construct (String t)	{
-		text = t;
-		sa = new int[t.length()];
-		lcp = new int[t.length()];
+	protected void construct (String text)	{
+		this.text = text;
+		sa = new int[text.length()];
+		lcp = new int[text.length()];
 		// temporary space, will get freed up
-		Suffix[] suffixes = new Suffix[t.length()];
+		Suffix[] suffixes = new Suffix[text.length()];
 		// gather all suffixes
-		for (int i = 0; i < text.length(); i++)	
-			suffixes[i] = new Suffix(text.substring(i), i);
+		for (int i = 0; i < this.text.length(); i++)
+			suffixes[i] = new Suffix(this.text.substring(i), i);
 		//System.out.println("Listing all suffixes");
 		//for (Suffix s : suffixes) System.out.println(s);
 		// sort them
@@ -94,35 +97,31 @@ public class BasicSuffixArray
 			//System.out.println(i+": "+suffixes[i]);
 		// build the suffix and lcp arrays
 		lcp[0] = 0;
-		for (int i = 1; i < t.length(); i++)	{
+		for (int i = 1; i < text.length(); i++)	{
 			sa[i-1] = suffixes[i-1].position;
 			lcp[i] = StringUtils.lcp(suffixes[i-1].suffix, suffixes[i].suffix).length();
 			//System.out.println("LCP ("+suffixes[i-1]+", "+suffixes[i]+") = "+StringUtils.lcp(suffixes[i-1].suffix, suffixes[i].suffix));
 			suffixes[i-1] = null;	// free up
 		}
-		sa[t.length()-1] = suffixes[t.length()-1].position;
-		suffixes[t.length()-1] = null;	// free up
+		sa[text.length()-1] = suffixes[text.length()-1].position;
+		suffixes[text.length()-1] = null;	// free up
 	}
 	
 	private String text = null;
 	private int[] sa = null;
 	private int[] lcp = null;
-	
+
+	/**
+	 * Nested class representing a single suffix of a given String.
+	 */
 	protected static class Suffix  
 	{
 		public Suffix (String s, int pos) { suffix = s; position = pos; }
 		public String toString() { return "{"+suffix+","+position+"}"; }
 		public static Comparator<Suffix> getComparator () { return comp; }
 		
-		protected String suffix = null;
+		protected String suffix;
 		protected Integer position = -1;
-		protected static Comparator<Suffix> comp = (o1, o2) -> o1.suffix.compareTo(o2.suffix);
-	}
-	
-	public static void main (String[] args)	{
-		BasicSuffixArray sa = new BasicSuffixArray("cart$art");
-		System.out.println(sa.toString());
-		System.out.println("Longest common substring (myself, yourself) = "+getLongestCommonSubstring("my$self", "yourself"));
-		System.out.println("Longest repeated substring (mississippi) = "+getLongestRepeatedSubstring("mississippi"));
+		protected static Comparator<Suffix> comp = Comparator.comparing(o -> o.suffix);
 	}
 }
