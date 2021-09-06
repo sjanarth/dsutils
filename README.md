@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/github/license/sjanarth/dsutils)
 
 # Special Purpose Data Structures
-A set of special purpose utility data structures classes.
+A collection of special purpose utility data structures classes.
 
 | Class         | What is it    | 
 | ------------- |:-------------:|
