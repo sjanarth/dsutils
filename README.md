@@ -12,7 +12,6 @@ A set of special purpose utility data structures classes.
 | [BasicSuffixArray](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicSuffixArray.html)     | |
 | [BasicSuffixTree](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicSuffixTree.html)     | |
 | [BasicTrie](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicTrie.html)     | |
-| [GeneralizedSuffixTree](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/GeneralizedSuffixTree.html)     | |
 | [LRUCache](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/LRUCache.html)     | |
 
 # Documentation and Usage
@@ -20,4 +19,12 @@ A set of special purpose utility data structures classes.
 
 [JavaDocs](http://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/index.html)
 
-**Example Usage**
+**Example Usage** 
+Sample programs that illustrate common usage patterns.
+
+| Class         | What is it    | 
+| ------------- |:-------------:|
+| [AutoComplete](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/AutoComplete.html)     | |
+| [AutoCompleteTrie](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/AutoCompleteTrie.html)     | |
+| [BasicSuffixArray](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/BasicSuffixArray.html)     | |
+| [BasicSuffixTree](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/BasicSuffixTree.html)     | |
