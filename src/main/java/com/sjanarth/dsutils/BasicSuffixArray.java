@@ -8,7 +8,7 @@ import java.util.Comparator;
  *
  * The construction of the suffix array uses a O(n^2) algorithm but can be
  * easily overridden by supplying custom implementations of the construct method.
- * This can be particularly useful for large datasets or if the input text is > 500 chars.
+ * This can be particularly useful for large datasets or if the input text is &gt; 500 chars.
  *
  * More info:
  * https://en.wikipedia.org/wiki/Suffix_array

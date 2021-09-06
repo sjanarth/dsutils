@@ -45,16 +45,18 @@ public class BasicObjectWithProperties
      * Adds a given value to a property identified by the key.
      * @param key the key of the property whose value must be modified.
      * @param value the value to set the property to.
-     * @notes If the property already exists and has a current value
+     * <p>
+     *        If the property already exists and has a current value
      *          that is a java collection, this method will add the given
      *          value to the collection and not overwrite the previous values.
      *        If the property already exists and has a current value
      *          that is not a java collection, this method will create a new
-     *      *   <a href="java.util.Set">java.util.Set</a> to hold the values of this
-     *      *   property and initialize it with the both the previous and the current values.
+     *          <a href="java.util.Set">java.util.Set</a> to hold the values of this
+     *          property and initialize it with the both the previous and the current values.
      *        If the property does not already exist, this method will create a new
      *          <a href="java.util.Set">java.util.Set</a> to hold the values of this
      *          property and initialize it with the given value.
+     * </p>
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void addProperty (Object key, Object value) {

@@ -23,7 +23,7 @@ public class BasicSuffixTree extends BasicTrie
 
 	/**
 	 * Constructs a suffix tree with the given input String.
-	 * @param input
+	 * @param input input String to create the suffix tree with
 	 */
 	public BasicSuffixTree(String input) {
 		words = new ArrayList<>();
