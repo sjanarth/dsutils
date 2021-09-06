@@ -17,7 +17,7 @@ A collection of special purpose utility data structures classes.
 # Documentation and Usage
 **General Documentation**
 
-[JavaDocs](http://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/index.html)
+[JavaDocs](http://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/overview-summary.html)
 
 **Example Usage** 
 Sample programs that illustrate common usage patterns.
