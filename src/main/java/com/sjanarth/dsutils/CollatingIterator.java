@@ -2,24 +2,38 @@ package com.sjanarth.dsutils;
 
 import java.util.*;
 
+/**
+ * Given a list of Iterators that produce an non-decreasing sequence, the CollatingIterator
+ * can produce a collated, non-decreasing sequence without dropping any values from the
+ * underling iterators.
+ *
+ * @param <E> Type - could be a primitive or a custom class
+ */
 public class CollatingIterator<E> implements Iterator<E>
 {
-	private PriorityQueue<E> pq;
-	private List<Iterator<E>> allIterators;
-	private Map<E, Iterator<E>> waitingValues;
-	
+	/**
+	 * Constructs an empty instance.
+	 */
 	public CollatingIterator () {
 		pq = new PriorityQueue<E>();
-		allIterators = new ArrayList<Iterator<E>>();
-		waitingValues = new HashMap<E, Iterator<E>>();
+		allIterators = new ArrayList<>();
+		waitingValues = new HashMap<>();
 	}
 
+	/**
+	 * Constructs an empty instance with a Comparator
+	 * @param comparator Comparator instance to compare elements.
+	 */
 	public CollatingIterator (Comparator<? super E> comparator) {
 		pq = new PriorityQueue<E>(comparator);
-		allIterators = new ArrayList<Iterator<E>>();
-		waitingValues = new HashMap<E, Iterator<E>>();
+		allIterators = new ArrayList<>();
+		waitingValues = new HashMap<>();
 	}
 
+	/**
+	 * Adds the given iterator to an internal list of iterators.
+	 * @param it Iterator instance to add to the list.
+	 */
 	public void addIterator(Iterator<E> it) {
 		allIterators.add(it);
 	}
@@ -59,33 +73,7 @@ public class CollatingIterator<E> implements Iterator<E>
 		}
 	}
 
-	public static void main(String[] args) {
-		CollatingIterator<Integer> ci = new CollatingIterator<>();
-		ci.addIterator(new RandomIncreasingIterator());
-		ci.addIterator(new RandomIncreasingIterator());
-		ci.addIterator(new RandomIncreasingIterator());
-		for (int i = 0; i < 10; i++)	
-			System.out.println(ci.next());
-	}
-	
-	private static class RandomIncreasingIterator implements Iterator<Integer> 	{
-		public RandomIncreasingIterator() {}
-		private Integer lastValue = null;
-		@Override
-		public boolean hasNext() {
-			return true;
-		}
-		@Override
-		public Integer next() {
-			Integer value = (int) (Math.random() * 10.0);
-			//System.out.println("value="+value+", lastValue="+lastValue);
-			if (lastValue == null)	{
-				lastValue = value;
-				return value;
-			} else {
-				lastValue = lastValue + value;
-				return lastValue;
-			}
-		}
-	}
+	private PriorityQueue<E> pq;
+	private List<Iterator<E>> allIterators;
+	private Map<E, Iterator<E>> waitingValues;
 }
