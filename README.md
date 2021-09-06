@@ -1,5 +1,10 @@
-# Utility Data Structures
-A set of utility data structures classes.
+![Build](https://img.shields.io/github/workflow/status/sjanarth/dsutils/Maven%20Package)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/sjanarth/dsutils)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/sjanarth/dsutils?include_prereleases)
+![License](https://img.shields.io/github/license/sjanarth/dsutils)
+
+# Special Purpose Data Structures
+A set of special purpose utility data structures classes.
 
 | Class         | What is it    | 
 | ------------- |:-------------:|
@@ -9,3 +14,10 @@ A set of utility data structures classes.
 | [BasicTrie](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicTrie.html)     | |
 | [GeneralizedSuffixTree](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/GeneralizedSuffixTree.html)     | |
 | [LRUCache](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/LRUCache.html)     | |
+
+# Documentation and Usage
+**General Documentation**
+
+[JavaDocs](http://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/index.html)
+
+**Example Usage**
