@@ -30,3 +30,14 @@ Sample programs that illustrate common usage patterns.
 | [BasicSuffixArray](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/BasicSuffixArray.html)     | <p align="left">Sample illustrating LongestCommonSubstring & LongestRepeatedSubstring usecases of BasicSuffixArray</p>|
 | [BasicSuffixTree](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/BasicSuffixTree.html)     | |
 | [CollatingIterator](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/CollatingIterator.html)     | |
+
+**Download for Maven Projects**
+
+dsutils is in Maven Central, and can be added to a Maven project as follows:
+```
+<dependency>
+    <groupId>io.github.sjanarth</groupId>
+    <artifactId>sjanarth-dsutils</artifactId>
+    <version>x.x.x</version>
+</dependency>
+```
