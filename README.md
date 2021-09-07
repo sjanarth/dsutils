@@ -42,5 +42,5 @@ dsutils is in Maven Central, and can be added to a Maven project as follows:
 
 dsutils is in Maven Central, and can be added to a Gradle project as follows:
 ```
-implementation group: 'io.github.sjanarth', name: 'sjanarth-dsutils', version: '0.8.3.1'
+implementation group: 'io.github.sjanarth', name: 'sjanarth-dsutils', version: 'x.x.x'
 ```
