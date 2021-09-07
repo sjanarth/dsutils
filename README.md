@@ -20,6 +20,7 @@ A collection of special purpose utility data structures classes.
 [JavaDocs](http://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/overview-summary.html)
 
 **Example Usage** 
+
 Sample programs that illustrate common usage patterns.
 
 | Class         | What is it    | 
