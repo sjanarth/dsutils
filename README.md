@@ -23,7 +23,7 @@ A collection of special purpose utility data structures classes.
 
 Sample programs that illustrate common usage patterns.
 
-| Class         | What is it    | 
+| Class         | <p align="left">What is it</p>    | 
 | ------------- |:-------------:|
 | [AutoComplete](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/AutoComplete.html)     | <p align="left">A complete type ahead search system that provides fast prefix and topN queries</p> |
 | [AutoCompleteTrie](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/AutoCompleteTrie.html)     | <p align="left">An extension of the BasicTrie data structure specifically for typeahead systems</p>|
