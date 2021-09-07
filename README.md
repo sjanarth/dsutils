@@ -6,6 +6,12 @@
 # Special Purpose Data Structures
 A collection of special purpose utility data structures classes.
 
+* [BasicSuffixArray](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicSuffixArray.html)
+* [BasicSuffixTree](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicSuffixTree.html)
+* [BasicTrie](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicTrie.html)
+* [CollatingIterator](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/CollatingIterator.html)
+* [LRUCache](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/LRUCache.html)
+
 | <p align="left">Class</p>                                                                                                                                       | <p align="left">What is it</p>    | 
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |:-------------------------------------------------:|
 | [BasicSuffixArray](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicSuffixArray.html)     | |
@@ -22,6 +28,12 @@ A collection of special purpose utility data structures classes.
 **Example Usage** 
 
 Sample programs that illustrate common usage patterns.
+
+* [AutoComplete](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/AutoComplete.html) A complete type ahead search system that provides fast prefix and topN queries.
+* [AutoCompleteTrie](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/AutoCompleteTrie.html) An extension of the BasicTrie data structure specifically for typeahead systems.
+* [BasicSuffixArray](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/BasicSuffixArray.html) Sample illustrating LongestCommonSubstring & LongestRepeatedSubstring usecases of BasicSuffixArray.
+* [BasicSuffixTree](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/BasicSuffixTree.html)
+* [CollatingIterator](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/CollatingIterator.html)
 
 | <p align="left" valign="center">Class</p>         | <p align="left" valign="center">What is it</p>    | 
 | ------------------------------------------------- |:-------------------------------------------------:|
