@@ -6,8 +6,8 @@
 # Special Purpose Data Structures
 A collection of special purpose utility data structures classes.
 
-| <p align="left" vertical-align="middle">Class</p>         | <p align="left" valign="middle">What is it</p>    | 
-| ------------------------------------------------- |:-------------------------------------------------:|
+| <p align="left">Class</p>                                                                                                                                       | <p align="left">What is it</p>    | 
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------- |:-------------------------------------------------:|
 | [BasicSuffixArray](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicSuffixArray.html)     | |
 | [BasicSuffixTree](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicSuffixTree.html)     | |
 | [BasicTrie](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicTrie.html)     | |
