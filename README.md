@@ -12,14 +12,6 @@ A collection of special purpose utility data structures classes.
 * [CollatingIterator](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/CollatingIterator.html)
 * [LRUCache](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/LRUCache.html)
 
-| <p align="left">Class</p>                                                                                                                                       | <p align="left">What is it</p>    | 
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------- |:-------------------------------------------------:|
-| [BasicSuffixArray](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicSuffixArray.html)     | |
-| [BasicSuffixTree](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicSuffixTree.html)     | |
-| [BasicTrie](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/BasicTrie.html)     | |
-| [CollatingIterator](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/CollatingIterator.html)     | |
-| [LRUCache](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/LRUCache.html)     | |
-
 # Documentation and Usage
 **General Documentation**
 
@@ -34,14 +26,6 @@ Sample programs that illustrate common usage patterns.
 * [BasicSuffixArray](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/BasicSuffixArray.html) Sample illustrating LongestCommonSubstring & LongestRepeatedSubstring usecases of BasicSuffixArray.
 * [BasicSuffixTree](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/BasicSuffixTree.html)
 * [CollatingIterator](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/CollatingIterator.html)
-
-| <p align="left" valign="center">Class</p>         | <p align="left" valign="center">What is it</p>    | 
-| ------------------------------------------------- |:-------------------------------------------------:|
-| [AutoComplete](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/AutoComplete.html)     | <p align="left" valign="center">A complete type ahead search system that provides fast prefix and topN queries</p> |
-| [AutoCompleteTrie](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/AutoCompleteTrie.html)     | <p align="left" valign="center">An extension of the BasicTrie data structure specifically for typeahead systems</p>|
-| [BasicSuffixArray](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/BasicSuffixArray.html)     | <p align="left" valign="center">Sample illustrating LongestCommonSubstring & LongestRepeatedSubstring usecases of BasicSuffixArray</p>|
-| [BasicSuffixTree](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/BasicSuffixTree.html)     | |
-| [CollatingIterator](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/CollatingIterator.html)     | |
 
 **Download for Maven Projects**
 
