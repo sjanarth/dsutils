@@ -24,7 +24,7 @@ Sample programs that illustrate common usage patterns.
 
 | Class         | What is it    | 
 | ------------- |:-------------:|
-| [AutoComplete](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/AutoComplete.html)     | <p align="left">A complete type ahead (auto-complete) search system that provides fast queries (both prefix and topN) and granular updates </p>|
+| [AutoComplete](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/AutoComplete.html)     | <p align="left">A complete type ahead search system that provides fast queries (both prefix and topN) and granular updates</p>|
 | [AutoCompleteTrie](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/AutoCompleteTrie.html)     | An extension of the BasicTrie data structure specifically for typeahead systems|
 | [BasicSuffixArray](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/BasicSuffixArray.html)     | Sample illustrating simple usecases (LongestCommonSubstring, LongestRepeatedSubstring) for the BasicSuffixArray|
 | [BasicSuffixTree](https://htmlpreview.github.io/?http://raw.githubusercontent.com/sjanarth/dsutils/master/docs/com/sjanarth/dsutils/samples/BasicSuffixTree.html)     | |
